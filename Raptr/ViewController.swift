@@ -14,10 +14,20 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
     
     @IBOutlet weak var distValue: UILabel!
     @IBOutlet weak var powerValue: UILabel!
+    @IBOutlet weak var offButton: UIButton!
+    @IBOutlet weak var leftMotorButton: UIButton!
+    @IBOutlet weak var rightMotorButton: UIButton!
+    @IBOutlet weak var latVarButton: UIButton!
+    @IBOutlet weak var linear1Button: UIButton!
+    @IBOutlet weak var linear2Button: UIButton!
+    @IBOutlet weak var linear3Button: UIButton!
+    @IBOutlet weak var linear4Button: UIButton!
     
     // Properties
     private var centralManager: CBCentralManager!
     private var peripheral: CBPeripheral!
+    
+    private var rxChar: CBCharacteristic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +81,8 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
                 if service.uuid == RaptrPeripheral.legacyServiceUUID {
                     print ("Legacy service found")
                     // kick off the discovery of characteristics
-                    peripheral.discoverCharacteristics([RaptrPeripheral.legacyDataUUID], for: service)
+                    peripheral.discoverCharacteristics([RaptrPeripheral.legacyTxUUID], for: service)
+                    peripheral.discoverCharacteristics([RaptrPeripheral.legacyRxUUID], for: service)
                 }
             }
         }
@@ -84,14 +95,18 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
                     print("Power Distance Characteristic found")
                     peripheral.setNotifyValue(true, for:characteristic)
                 }
-                if characteristic.uuid == RaptrPeripheral.legacyDataUUID {
-                    print("Legacy Data Characteristic found")
+                if characteristic.uuid == RaptrPeripheral.legacyTxUUID {
+                    print("Legacy TX Characteristic found")
                     peripheral.setNotifyValue(true, for: characteristic)
+                }
+                if characteristic.uuid == RaptrPeripheral.legacyRxUUID {
+                    print("Legacy RX Characteristic found")
+                    peripheral.setNotifyValue(true, for: characteristic)
+                    rxChar = characteristic
                 }
             }
         }
     }
-    
     
     // Callback for updating the Bluetooth data
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
@@ -103,12 +118,12 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
             powerValue.text = String(transformedVector.power)
             
         }
-        else if characteristic.uuid == RaptrPeripheral.legacyDataUUID {
+        else if characteristic.uuid == RaptrPeripheral.legacyTxUUID {
             let data = characteristic.value!
             let str = String(decoding: data, as: UTF8.self)
             let filtered = String(str.filter {!"\r\n".contains($0) })
             let dataPoints = filtered.components(separatedBy: ",")
-            print(str)
+
             if dataPoints.count == 5 {
                 distValue.text = String(dataPoints[2])
                 powerValue.text = String(dataPoints[4])
@@ -136,6 +151,40 @@ class ViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDe
         let transform: (UInt32) -> Float = { Float($0) / 1000000000 } // define whatever transformation you need
         return (transform(ints.dist), transform(ints.power))
     }
-
+    
+    // Writes an input value to the specificed characteristic
+    private func writeModeToChar(withCharacteristic characteristic: CBCharacteristic, withValue value: Data) {
+        if characteristic.properties.contains(.write) && peripheral != nil {
+            // write the sled mode value to the specified characteristic
+            peripheral.writeValue(value, for: characteristic, type: .withResponse)
+        }
+    }
+    
+    // PWM Motor Control Button Callbacks
+    @IBAction func offButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B81".utf8))
+    }
+    @IBAction func leftMotorButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B71".utf8))
+    }
+    @IBAction func rightMotorButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B61".utf8))
+    }
+    @IBAction func latVarButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B51".utf8))
+    }
+    // Linear Motor Control Button Callbacks
+    @IBAction func linear1ButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B11".utf8))
+    }
+    @IBAction func linear2ButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B21".utf8))
+    }
+    @IBAction func linear3ButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B31".utf8))
+    }
+    @IBAction func linear4ButtonPressed(_ sender: UIButton) {
+        writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B41".utf8))
+    }
 }
 
