@@ -3,13 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0004B266BBBFA1AF25D704C7 /* Pods_Raptr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC38563BDD1C114FA502361 /* Pods_Raptr.framework */; };
+		87313025259FD24E000875A9 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87313024259FD24E000875A9 /* GoalViewController.swift */; };
+		877F1AC6259E577500849A33 /* MotorModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F1AC5259E577500849A33 /* MotorModeViewController.swift */; };
+		87B65BC2259EA630008FAE29 /* SessionMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B65BC1259EA630008FAE29 /* SessionMetrics.swift */; };
 		87B77FA625979A9C0036AE61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B77FA525979A9C0036AE61 /* AppDelegate.swift */; };
 		87B77FA825979A9C0036AE61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B77FA725979A9C0036AE61 /* SceneDelegate.swift */; };
-		87B77FAA25979A9C0036AE61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B77FA925979A9C0036AE61 /* ViewController.swift */; };
+		87B77FAA25979A9C0036AE61 /* SledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B77FA925979A9C0036AE61 /* SledViewController.swift */; };
 		87B77FAD25979A9C0036AE61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B77FAB25979A9C0036AE61 /* Main.storyboard */; };
 		87B77FAF25979AA10036AE61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B77FAE25979AA10036AE61 /* Assets.xcassets */; };
 		87B77FB225979AA10036AE61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B77FB025979AA10036AE61 /* LaunchScreen.storyboard */; };
@@ -17,15 +21,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AC38563BDD1C114FA502361 /* Pods_Raptr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Raptr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		753825130DFD6AF1D43409A9 /* Pods-Raptr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raptr.release.xcconfig"; path = "Target Support Files/Pods-Raptr/Pods-Raptr.release.xcconfig"; sourceTree = "<group>"; };
+		87313024259FD24E000875A9 /* GoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
+		877F1AC5259E577500849A33 /* MotorModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorModeViewController.swift; sourceTree = "<group>"; };
+		87B65BC1259EA630008FAE29 /* SessionMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMetrics.swift; sourceTree = "<group>"; };
 		87B77FA225979A9C0036AE61 /* Raptr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Raptr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B77FA525979A9C0036AE61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B77FA725979A9C0036AE61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		87B77FA925979A9C0036AE61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		87B77FA925979A9C0036AE61 /* SledViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SledViewController.swift; sourceTree = "<group>"; };
 		87B77FAC25979A9C0036AE61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87B77FAE25979AA10036AE61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87B77FB125979AA10036AE61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87B77FB325979AA10036AE61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87B77FBA25979D9C0036AE61 /* RaptrPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaptrPeripheral.swift; sourceTree = "<group>"; };
+		A7BFCCC300BF7E2650C9CE10 /* Pods-Raptr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Raptr.debug.xcconfig"; path = "Target Support Files/Pods-Raptr/Pods-Raptr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0004B266BBBFA1AF25D704C7 /* Pods_Raptr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +55,8 @@
 			children = (
 				87B77FA425979A9C0036AE61 /* Raptr */,
 				87B77FA325979A9C0036AE61 /* Products */,
+				C55651AD2AACC80F8FBEC1D1 /* Pods */,
+				94257C357E8436FB8075E3C1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,14 +73,58 @@
 			children = (
 				87B77FA525979A9C0036AE61 /* AppDelegate.swift */,
 				87B77FA725979A9C0036AE61 /* SceneDelegate.swift */,
-				87B77FA925979A9C0036AE61 /* ViewController.swift */,
-				87B77FBA25979D9C0036AE61 /* RaptrPeripheral.swift */,
-				87B77FAB25979A9C0036AE61 /* Main.storyboard */,
+				87D492D4259CF21700442193 /* Models */,
+				87D492D5259CF22A00442193 /* Views */,
+				87D492D3259CF20400442193 /* Controllers */,
 				87B77FAE25979AA10036AE61 /* Assets.xcassets */,
 				87B77FB025979AA10036AE61 /* LaunchScreen.storyboard */,
 				87B77FB325979AA10036AE61 /* Info.plist */,
 			);
 			path = Raptr;
+			sourceTree = "<group>";
+		};
+		87D492D3259CF20400442193 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				87B77FA925979A9C0036AE61 /* SledViewController.swift */,
+				877F1AC5259E577500849A33 /* MotorModeViewController.swift */,
+				87313024259FD24E000875A9 /* GoalViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		87D492D4259CF21700442193 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87B77FBA25979D9C0036AE61 /* RaptrPeripheral.swift */,
+				87B65BC1259EA630008FAE29 /* SessionMetrics.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87D492D5259CF22A00442193 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				87B77FAB25979A9C0036AE61 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		94257C357E8436FB8075E3C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AC38563BDD1C114FA502361 /* Pods_Raptr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C55651AD2AACC80F8FBEC1D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7BFCCC300BF7E2650C9CE10 /* Pods-Raptr.debug.xcconfig */,
+				753825130DFD6AF1D43409A9 /* Pods-Raptr.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87B77FB625979AA10036AE61 /* Build configuration list for PBXNativeTarget "Raptr" */;
 			buildPhases = (
+				CD5938D239B2886000CAFDE2 /* [CP] Check Pods Manifest.lock */,
 				87B77F9E25979A9C0036AE61 /* Sources */,
 				87B77F9F25979A9C0036AE61 /* Frameworks */,
 				87B77FA025979A9C0036AE61 /* Resources */,
+				89289C490C27C5193234F85E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,12 +194,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		89289C490C27C5193234F85E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Raptr/Pods-Raptr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Raptr/Pods-Raptr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Raptr/Pods-Raptr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD5938D239B2886000CAFDE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Raptr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		87B77F9E25979A9C0036AE61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B77FAA25979A9C0036AE61 /* ViewController.swift in Sources */,
+				87313025259FD24E000875A9 /* GoalViewController.swift in Sources */,
+				877F1AC6259E577500849A33 /* MotorModeViewController.swift in Sources */,
+				87B77FAA25979A9C0036AE61 /* SledViewController.swift in Sources */,
+				87B65BC2259EA630008FAE29 /* SessionMetrics.swift in Sources */,
 				87B77FBB25979D9C0036AE61 /* RaptrPeripheral.swift in Sources */,
 				87B77FA625979A9C0036AE61 /* AppDelegate.swift in Sources */,
 				87B77FA825979A9C0036AE61 /* SceneDelegate.swift in Sources */,
@@ -287,6 +391,7 @@
 		};
 		87B77FB725979AA10036AE61 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7BFCCC300BF7E2650C9CE10 /* Pods-Raptr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +411,7 @@
 		};
 		87B77FB825979AA10036AE61 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 753825130DFD6AF1D43409A9 /* Pods-Raptr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
