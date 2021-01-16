@@ -249,6 +249,9 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
             let largeRecordSymbol = UIImage(systemName: "record.circle", withConfiguration: largeConfig)
             recordButton.setImage(largeRecordSymbol, for: .normal)
         } else {
+            // Save to CSV
+            sessionMetrics.createCsv(from: sessionMetrics.distPwrArray)
+            
             // Clear the old graph data
             self.graphView.clearValues()
             sessionMetrics.clearMetrics()
