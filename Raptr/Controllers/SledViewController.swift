@@ -12,8 +12,6 @@ import Charts
 
 class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManagerDelegate {
     
-    @IBOutlet weak var graphView: LineChartView!
-    
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var distValue: UILabel!
@@ -37,12 +35,6 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
         let largeRecordSymbol = UIImage(systemName: "record.circle", withConfiguration: largeConfig)
         recordButton.setImage(largeRecordSymbol, for: .normal)
         timeLabel.text = String(sessionMetrics.counter)
-        
-        graphView.backgroundColor = .systemGray6
-        graphView.rightAxis.enabled = false
-        graphView.xAxis.labelPosition = XAxis.LabelPosition.bottom
-        graphView.legend.enabled = false
-        graphView.leftAxis.axisMinimum = 0.0
     }
     
     // If powered on, start scanning
@@ -219,10 +211,6 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
         sessionMetrics.goalSet.drawValuesEnabled = false
         sessionMetrics.goalSet.setColor(.systemRed)
         sessionMetrics.goalSet.lineWidth = 2.5
-        
-        let data = LineChartData(dataSets: [sessionMetrics.powerVsDistSet, sessionMetrics.goalSet])
-        self.graphView.data = data
-        self.graphView.data?.notifyDataChanged()
     }
     
     // Increment the stopwatch timer
@@ -251,10 +239,6 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
         } else {
             // Save to CSV
             sessionMetrics.createCsv(from: sessionMetrics.distPwrArray)
-            
-            // Clear the old graph data
-            self.graphView.clearValues()
-            sessionMetrics.clearMetrics()
             
             // Create a new timer for stopwatch
             sessionMetrics.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
