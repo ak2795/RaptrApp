@@ -147,8 +147,7 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
             if dataPoints.count == 2 && data.count > 10 {
                 // DEBUG Statement
                 print(dataPoints)
-                distValue.text = String(dataPoints[0])
-                powerValue.text = String(dataPoints[1])
+d                powerValue.text = String(dataPoints[1])
                 // Check the power value to change the label to respective color
                 if let powerFloat = Float(dataPoints[1]) {
                     checkPower(powerFloat)
@@ -220,7 +219,7 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
         sessionMetrics.goalSet.setColor(.systemRed)
         sessionMetrics.goalSet.lineWidth = 2.5
         
-        let data = LineChartData(dataSets: [sessionMetrics.powerVsDistSet, sessionMetrics.goalSet])
+//        let data = LineChartData(dataSets: [sessionMetrics.powerVsDistSet, sessionMetrics.goalSet])
 //        self.graphView.data = data
 //        self.graphView.data?.notifyDataChanged()
     }
@@ -250,7 +249,7 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
             recordButton.setImage(largeRecordSymbol, for: .normal)
         } else {
             // Save to CSV
-            sessionMetrics.createCsv(from: sessionMetrics.distPwrArray)
+//            sessionMetrics.createCsv(from: sessionMetrics.distPwrArray)
             
             // Clear the old graph data
 //            self.graphView.clearValues()
