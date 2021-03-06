@@ -147,7 +147,7 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
             if dataPoints.count == 2 && data.count > 10 {
                 // DEBUG Statement
                 print(dataPoints)
-d                powerValue.text = String(dataPoints[1])
+                powerValue.text = String(dataPoints[1])
                 // Check the power value to change the label to respective color
                 if let powerFloat = Float(dataPoints[1]) {
                     checkPower(powerFloat)
