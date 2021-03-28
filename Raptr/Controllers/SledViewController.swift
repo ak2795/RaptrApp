@@ -96,7 +96,8 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
                 if service.uuid == RaptrPeripheral.sledServiceUUID {
                     print ("Sled Service found")
                     // kick off the discovery of characteristics
-                    peripheral.discoverCharacteristics([RaptrPeripheral.distPowerUUID], for: service)
+                    peripheral.discoverCharacteristics([RaptrPeripheral.distPowerUUID,
+                                                        RaptrPeripheral.pwmUUID], for: service)
                     return
                 }
                 if service.uuid == RaptrPeripheral.legacyServiceUUID {
@@ -115,6 +116,11 @@ class SledViewController: UIViewController, CBPeripheralDelegate, CBCentralManag
                 if characteristic.uuid == RaptrPeripheral.distPowerUUID {
                     print("Power Distance Characteristic found")
                     peripheral.setNotifyValue(true, for:characteristic)
+                }
+                if characteristic.uuid == RaptrPeripheral.pwmUUID {
+                    print("PWM Characteristic found")
+                    peripheral.setNotifyValue(true, for: characteristic)
+                    rxChar = characteristic
                 }
                 if characteristic.uuid == RaptrPeripheral.legacyTxUUID {
                     print("Legacy TX Characteristic found")

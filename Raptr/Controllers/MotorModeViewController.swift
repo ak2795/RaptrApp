@@ -90,22 +90,22 @@ class MotorModeViewController: UIViewController {
         // Determine which button is pressed to and write the correct command to the characteristic
         let buttonPressed = sender.currentTitle
         switch buttonPressed {
-        case "OFF":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B21".utf8))
-        case "Left Motor":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B31".utf8))
-        case "Right Motor":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B41".utf8))
-        case "Lateral Variation":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B51".utf8))
+//        case "OFF":
+//            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x00]))
+//        case "Left Motor":
+//            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x00]))
+//        case "Right Motor":
+//            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x00]))
+//        case "Lateral Variation":
+//            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x00]))
         case "Linear 1":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B61".utf8))
+            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x01]))
         case "Linear 2":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B71".utf8))
+            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x02]))
         case "Linear 3":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B81".utf8))
+            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x03]))
         case "Rolling Hills":
-            writeModeToChar(withCharacteristic: rxChar!, withValue: Data("!B11".utf8))
+            writeModeToChar(withCharacteristic: rxChar!, withValue: Data([0x06]))
         default:
             break
         }
